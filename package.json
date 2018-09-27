@@ -1,0 +1,23 @@
+{
+  "name": "rockpaperscissors",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors app",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunaynay/RockPaperScissors.git"
+  },
+  "author": "Kunal Chauhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kunaynay/RockPaperScissors/issues"
+  },
+  "homepage": "https://kunaynay.github.io/RockPaperScissors",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  }
+}

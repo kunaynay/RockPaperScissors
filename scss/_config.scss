@@ -1,0 +1,10 @@
+$win-color: #00cf26;
+$loss-color: #b20033;
+$font-color: #fff;
+$draw-color: #0080ff;
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,800");
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}

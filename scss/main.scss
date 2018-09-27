@@ -1,0 +1,133 @@
+@import "config";
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $draw-color;
+  color: $font-color;
+  font-family: "Nunito", sans-serif;
+  @include easeOut;
+}
+
+main {
+  text-align: center;
+  margin: 10vh 17.5%;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+p {
+  grid-column: 1 / 4;
+  margin: 0 20vh;
+}
+
+.scoreSet {
+  grid-column: 2 / 3;
+
+  #score {
+    border: none;
+    border-bottom: 2px $font-color solid;
+    background: none;
+    color: $font-color;
+    font-family: "Nunito", sans-serif;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+
+    &::placeholder {
+      color: $font-color;
+    }
+  }
+  #reset {
+    background: none;
+    border: 2px solid $font-color;
+    font-size: 1.5em;
+    font-family: "Nunito", sans-serif;
+    color: $font-color;
+
+    &:hover {
+      cursor: pointer;
+      background: lighten(grey, 5);
+    }
+  }
+}
+
+.scoreKeeper {
+  grid-column: 1 / 4;
+}
+
+.choice {
+  grid-column: 1 / 4;
+  width: 100%;
+  justify-content: space-around;
+
+  .displayChoice:nth-child(1) {
+    display: inline-block;
+    margin-right: 100px;
+  }
+
+  .displayChoice:nth-child(2) {
+    display: inline-block;
+    margin-left: 100px;
+  }
+
+  .displayChoice {
+    @include easeOut;
+    i {
+      background: $font-color;
+      padding: 30px;
+      color: $draw-color;
+      font-size: 5em;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+
+    .icon {
+      @include easeOut;
+
+      &-win {
+        color: $win-color;
+      }
+
+      &-draw {
+        color: $draw-color;
+      }
+
+      &-loss {
+        color: $loss-color;
+      }
+    }
+  }
+}
+
+.selectHand {
+  background: none;
+  border: none;
+  border: 5px solid rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  padding: 15px;
+  width: 90px;
+  font-size: 3em;
+  color: $font-color;
+  margin: 10vh auto 0 auto;
+
+  &:hover {
+    @include easeOut;
+    cursor: pointer;
+    border: 5px solid $font-color;
+  }
+}

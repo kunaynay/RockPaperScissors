@@ -5,11 +5,15 @@ const score = document.querySelector("#score");
 const reset = document.querySelector("#reset");
 const playerScoreDisplay = document.querySelector(".playerScoreDisplay");
 const playerChoiceDisplay = document.querySelector(".playerChoiceDisplay");
+const playerChoiceDisplayIcon = document.querySelector(".icon");
 const cpuScoreDisplay = document.querySelector(".cpuScoreDisplay");
 const cpuChoiceDisplay = document.querySelector(".cpuChoiceDisplay");
+const cpuChoiceDisplayIcon = document.querySelector(".icon");
 const heading = document.querySelector(".heading");
+const body = document.querySelector("body");
 
 let temp = 0;
+let classify = "";
 
 let winScore = 3;
 let playerScore = 0;
@@ -66,8 +70,9 @@ const roundWinner = (player, cpu) => {
   ) {
     playerScore++;
     playerScoreDisplay.textContent = playerScore;
-    choiceDisplay(player, cpu);
-    console.log(`Player! ${player} ${cpu}`);
+    classify = "win";
+    choiceDisplay(player, cpu, classify);
+    body.style.background = "#00cf26";
   } else if (
     (player === "rock" && cpu === "paper") ||
     (player === "paper" && cpu === "scissors") ||
@@ -75,11 +80,13 @@ const roundWinner = (player, cpu) => {
   ) {
     cpuScore++;
     cpuScoreDisplay.textContent = cpuScore;
-    choiceDisplay(player, cpu);
-    console.log(`CPU! ${player} ${cpu}`);
+    classify = "loss";
+    choiceDisplay(player, cpu, classify);
+    body.style.background = "#b20033";
   } else {
-    choiceDisplay(player, cpu);
-    console.log(`DRAW! ${player} ${cpu}`);
+    classify = "draw";
+    choiceDisplay(player, cpu, classify);
+    body.style.background = "#0080ff";
   }
 
   winCheck();
@@ -89,9 +96,11 @@ const roundWinner = (player, cpu) => {
 const winCheck = () => {
   if (playerScore === winScore) {
     heading.textContent = "Player wins!";
+    window.scrollTo(0, 0);
     return (gameOver = true);
   } else if (cpuScore === winScore) {
     heading.textContent = "CPU wins!";
+    window.scrollTo(0, 0);
     return (gameOver = true);
   }
 };
@@ -103,14 +112,19 @@ const resetAll = () => {
   gameOver = false;
   heading.textContent = "Rock Paper Scissors!";
   scoreDisplay();
-  choiceDisplay("None", "None");
+  choiceDisplayReset();
+  body.style.background = "#0080ff";
 };
 
 //Display function
 
-const choiceDisplay = (player, cpu) => {
-  cpuChoiceDisplay.textContent = cpu;
-  playerChoiceDisplay.textContent = player;
+const choiceDisplay = (player, cpu, classify) => {
+  cpuChoiceDisplay.innerHTML = `<i class="fas fa-hand-${cpu} icon icon-${classify}">`;
+  playerChoiceDisplay.innerHTML = `<i class="fas fa-hand-${player} icon icon-${classify}">`;
+};
+const choiceDisplayReset = () => {
+  cpuChoiceDisplay.innerHTML = `<i class="far fa-circle icon icon-draw"></i>`;
+  playerChoiceDisplay.innerHTML = `<i class="far fa-circle icon icon-draw"></i>`;
 };
 
 const scoreDisplay = () => {
