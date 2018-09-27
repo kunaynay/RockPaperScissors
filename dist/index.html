@@ -11,18 +11,19 @@
 <body>
   <h1>Rock Paper Scissors!</h1>
   <p>Classic rules of rock, paper, scissors apply here. Rock beats scissors, scissors beat paper, and paper beats rock!
-    Set the winning score and have fun!</p>
+    Set the winning score (default is 3) and have fun!</p>
   Set Winning Score:<input type="number" name="score" id="score">
+  <button id="reset">Reset</button>
 
   <div class="scoreKeeper">
     <h1>
-      Player: <span class="playerScore">2</span>
-      CPU: <span class="cpuScore">1</span>
+      Player: <span class="playerScoreDisplay">0</span>
+      CPU: <span class="cpuScoreDisplay">0</span>
     </h1>
   </div>
   <div class="displayChoice">
-    Player: <span class="playerChoice">Rock</span> <br>
-    CPU: <span class="cpuChoice">Scissors</span>
+    Player: <span class="playerChoiceDisplay">None</span> <br>
+    CPU: <span class="cpuChoiceDisplay">None</span>
   </div>
   <button id="rock">Rock</button>
   <button id="paper">Paper</button>
