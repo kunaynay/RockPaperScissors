@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,800");
+*:focus {
+  outline: none; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0080ff;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  transition: all 0.5s ease-out; }
+
+main {
+  text-align: center;
+  margin: 10vh 17.5%;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr); }
+
+h1 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  grid-column: 1 / 4; }
+
+p {
+  grid-column: 1 / 4;
+  margin: 0 20vh; }
+
+.scoreSet {
+  grid-column: 2 / 3; }
+  .scoreSet #score {
+    border: none;
+    border-bottom: 2px #fff solid;
+    background: none;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px; }
+    .scoreSet #score::placeholder {
+      color: #fff; }
+  .scoreSet #reset {
+    background: none;
+    border: 2px solid #fff;
+    font-size: 1.5em;
+    font-family: "Nunito", sans-serif;
+    color: #fff; }
+    .scoreSet #reset:hover {
+      cursor: pointer;
+      background: #8d8d8d; }
+
+.scoreKeeper {
+  grid-column: 1 / 4; }
+
+.choice {
+  grid-column: 1 / 4;
+  width: 100%;
+  justify-content: space-around; }
+  .choice .displayChoice:nth-child(1) {
+    display: inline-block;
+    margin-right: 100px; }
+  .choice .displayChoice:nth-child(2) {
+    display: inline-block;
+    margin-left: 100px; }
+  .choice .displayChoice {
+    transition: all 0.5s ease-out; }
+    .choice .displayChoice i {
+      background: #fff;
+      padding: 30px;
+      color: #0080ff;
+      font-size: 5em;
+      vertical-align: middle;
+      border-radius: 50%; }
+    .choice .displayChoice .icon {
+      transition: all 0.5s ease-out; }
+      .choice .displayChoice .icon-win {
+        color: #00cf26; }
+      .choice .displayChoice .icon-draw {
+        color: #0080ff; }
+      .choice .displayChoice .icon-loss {
+        color: #b20033; }
+
+.selectHand {
+  background: none;
+  border: none;
+  border: 5px solid rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  padding: 15px;
+  width: 90px;
+  font-size: 3em;
+  color: #fff;
+  margin: 10vh auto 0 auto; }
+  .selectHand:hover {
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    border: 5px solid #fff; }
