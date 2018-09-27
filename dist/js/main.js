@@ -91,7 +91,7 @@ const winCheck = () => {
     heading.textContent = "Player wins!";
     return (gameOver = true);
   } else if (cpuScore === winScore) {
-    console.log("CPU Wins!");
+    heading.textContent = "CPU wins!";
     return (gameOver = true);
   }
 };
