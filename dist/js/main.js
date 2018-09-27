@@ -5,7 +5,7 @@ var score = document.querySelector("#score");
 
 let temp = 0;
 
-let winScore = 0;
+let winScore = 1;
 let playerChoice = 0;
 let playerScore = 0;
 let cpuScore = 0;
@@ -14,18 +14,21 @@ let gameOver = false;
 
 //Event listeners for Rock Paper or Scissors
 rock.addEventListener("click", () => {
-  console.log("Rock Clicked!");
-  roundWinner("rock", cpuChoiceGenerator());
+  if (!gameOver) {
+    roundWinner("rock", cpuChoiceGenerator());
+  }
 });
 
 paper.addEventListener("click", () => {
-  console.log("Paper Clicked!");
-  roundWinner("paper", cpuChoiceGenerator());
+  if (!gameOver) {
+    roundWinner("paper", cpuChoiceGenerator());
+  }
 });
 
 scissors.addEventListener("click", () => {
-  console.log("Scissors Clicked!");
-  roundWinner("scissors", cpuChoiceGenerator());
+  if (!gameOver) {
+    roundWinner("scissors", cpuChoiceGenerator());
+  }
 });
 
 //Event listener toset the win condition
@@ -67,5 +70,18 @@ const roundWinner = (player, cpu) => {
     console.log(`CPU! ${player} ${cpu}`);
   } else {
     console.log(`DRAW! ${player} ${cpu}`);
+  }
+
+  winCheck();
+};
+
+//Checking who won the entire game
+const winCheck = () => {
+  if (playerScore === winScore) {
+    console.log("Player wins!");
+    return (gameOver = true);
+  } else if (cpuScore === winScore) {
+    console.log("CPU Wins!");
+    return (gameOver = true);
   }
 };
