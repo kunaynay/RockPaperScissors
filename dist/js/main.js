@@ -7,6 +7,7 @@ const playerScoreDisplay = document.querySelector(".playerScoreDisplay");
 const playerChoiceDisplay = document.querySelector(".playerChoiceDisplay");
 const cpuScoreDisplay = document.querySelector(".cpuScoreDisplay");
 const cpuChoiceDisplay = document.querySelector(".cpuChoiceDisplay");
+const heading = document.querySelector(".heading");
 
 let temp = 0;
 
@@ -87,7 +88,7 @@ const roundWinner = (player, cpu) => {
 //Checking who won the entire game
 const winCheck = () => {
   if (playerScore === winScore) {
-    console.log("Player wins!");
+    heading.textContent = "Player wins!";
     return (gameOver = true);
   } else if (cpuScore === winScore) {
     console.log("CPU Wins!");
@@ -100,6 +101,7 @@ const resetAll = () => {
   playerScore = 0;
   cpuScore = 0;
   gameOver = false;
+  heading.textContent = "Rock Paper Scissors!";
   scoreDisplay();
   choiceDisplay("None", "None");
 };
